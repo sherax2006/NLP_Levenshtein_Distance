@@ -59,7 +59,8 @@ for idx, row in filtered_df.iterrows():
         if not image_url or pd.isna(image_url) or not image_url.startswith("https"):
             image_url = fallback_image_url
         
-        st.image(image_url, caption=row["name"], use_column_width=True)
+        # ✅ Replaced use_column_width with use_container_width
+        st.image(image_url, caption=row["name"], use_container_width=True)
         st.write(f"📅 Year: {row['year']}")
         st.write(f"🎭 Actors: {row['actors']}")
         st.write(f"🧑‍💼 Producer: {row['producer']}")
